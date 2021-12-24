@@ -1,0 +1,143 @@
+
+raise:>
+The raise keyword is used to raise an exception.
+
+You can define what kind of error to raise, and the text to print to the user.
+
+
+'''
+def checkAge(age):
+    if age>=18:
+        return "eliable for vote"
+
+    else:
+        raise ZeroDivisionError("not eligble for vote")
+
+asset:>
+The assert keyword is used when debugging code.
+
+The assert keyword lets you test if a condition in your code returns True, if not, the program will raise an AssertionError.
+
+You can write a message to be written if the code returns False
+
+
+try:
+    a = int(input("Enter age : "))
+    res = checkAge(a)
+    print(res)
+
+except ZeroDivisionError as z:
+    print(z)
+
+def checkAge(age):
+    assert age>=18 ,"invalid age"
+    return "valid Age"
+
+try:
+    age = int(input("Enter age : "))
+    res = checkAge(age)
+    print(res)
+except AssertionError as a:
+    print(a)
+
+Iterators:>
+iter: to return the object
+next: to return the values one by one
+does not alllow duplicate elements
+
+ITERATOR VS ITERABLE:>
+Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.
+
+All these objects have a iter() method which is used to get an iterator:
+
+
+
+l = [1,2,3,4,5]
+
+print(l[0])
+
+for x in l:
+    print(x)
+
+
+values = iter(l)
+
+print(values.__next__())
+#print(values.__next__())
+#print(values.__next__())
+#print(values.__next__())
+
+for x in values:
+    print(x)
+
+
+l = [1,2,3,4,5]
+
+values = iter(l)
+
+print(values.__next__())
+print(values.__next__())
+print(values.__next__())
+print(values.__next__())
+print(values.__next__())
+print(values.__next__())
+
+class A:
+    def __init__(self):
+        self.num = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.num<=10:
+            val = self.num
+            self.num+=1
+            return val
+        else:
+            raise StopIteration
+
+a = A()
+
+for x in a:
+    print(x)
+
+GEnerators:>
+There is a lot of work in building an iterator in Python. We have to implement a class with __iter__() and __next__() method,
+keep track of internal states, and raise Stop Iteration when there are no values to be returned.
+
+This is both lengthy and counterintuitive. Generator comes to the rescue in such situations.
+
+Python generators are a simple way of creating iterators. All the work we mentioned above are automatically handled by generators in Python.
+
+Simply speaking, a generator is a function that returns an object (iterator) which we can iterate over (one value at a time).
+
+
+If a function contains at least one yield statement (it may contain other yield or return statements), it becomes a generator function.
+Both yield and return will return some value from a function.
+
+The difference is that while a return statement terminates a function entirely, yield statement pauses the function
+saving all its states and later continues from there on successive calls.
+
+Differences between Generator function and Normal function:>
+
+Generator function contains one or more yield statements.
+When called, it returns an object (iterator) but does not start execution immediately.
+Methods like __iter__() and __next__() are implemented automatically. So we can iterate through the items using next().
+Once the function yields, the function is paused and the control is transferred to the caller.
+Local variables and their states are remembered between successive calls.
+Finally, when the function terminates, StopIteration is raised automatically on further calls.
+
+
+
+def fun(n):
+    while n>0:
+        yield n**3
+        n-=1
+
+
+res = fun(5)
+
+for x in res:
+    print(x)
+

@@ -1,0 +1,145 @@
+'''
+class Employee:
+    cmpny_name = "xyz"
+    cmpny_add = "hyd"
+
+    def show(self):
+        print(Employee.cmpny_add)
+        print(Employee.cmpny_name)
+
+
+e = Employee()
+e.show()
+
+print("--------")
+print(Employee.cmpny_name)
+print(Employee.cmpny_add)
+
+class Person:
+    cmpny_name = "xyz"
+    cmpny_add = "hyderabad"
+
+    def myMethod(self,pid,pname,psal):
+        self.id = pid
+        self.na = pname
+        self.sal = psal
+
+
+    def display(self):
+
+        print("person id is : ",self.id)
+        print("person name is : ",self.na)
+        print("person sal is : ",self.sal)
+        print("name is : ",Person.cmpny_name)
+        print("address is : ",Person.cmpny_add)
+
+
+obj_p = Person()
+obj_p.myMethod(123,"xyz",12500)
+obj_p.display()
+print("==============")
+
+p = Person()
+p.myMethod(111,"python",15000)
+p.display()
+
+class A:
+    def __init__(self):
+        print("m from constrcutor")
+
+    def __init__(self):
+        print("second constrcutor")
+
+a = A()
+
+
+class E:
+    def __init__(self,eid,ename,esal):
+        self.id = eid
+        self.na = ename
+        self.sal = esal
+
+    def m1(self):
+        print("Person id is :" ,self.id)
+        print("person sal is : ",self.sal)
+        print("person name is : ",self.na)
+
+e = E(123,"xyz",23456)
+e.m1()
+
+class Employee:
+    def per(self):
+        print("hello")
+    def hr(self):
+        print("hr method")
+
+class PerEmp(Employee):
+    def temp(self):
+        print("hiii")
+
+class C(PerEmp):
+    def s(self):
+        print("vdnvd")
+
+p = C()
+p.per()
+p.temp()
+p.hr()
+p.s()
+
+class A:
+    def m1(self):
+        print("m from m1 method")
+
+class B:
+    def m1(self):
+        print("m2 method")
+
+class C(B,A):
+    def m3(self):
+        print("m3 method")
+
+
+c = C()
+c.m1()
+c.m3()
+
+class A:
+    def m1(self):
+        print("hello")
+
+
+class B(A):
+    def m2(self):
+        print("stay home")
+
+class C(A):
+    def m3(self):
+        print("stay safe")
+
+b = B()
+b.m2()
+b.m1()
+c =C()
+c.m1()
+c.m3()
+
+'''
+
+class A:
+    def __init__(self): # step 3
+        print("m from a class")
+
+    def m(self):
+        print("hiiii")
+
+
+class B(A):
+    def __init__(self):
+        super().__init__() # step 2
+        print("m from class B") # step 4
+
+
+b = B() # step 1
+b.m()
+

@@ -1,0 +1,110 @@
+Decorateors:
+Python has an interesting feature called decorators to add functionality to an existing code.
+
+This is also called metaprogramming because a part of the program tries to modify another part of the program at compile time.
+
+Decorators are very powerful and useful tool in Python since it allows programmers to modify the behavior of function or class.
+Decorators allow us to wrap another function in order to extend the behavior of wrapped function, without permanently modifying it.
+
+In Decorators, functions are taken as the argument into another function and then called inside the wrapper function.
+@
+
+def decro(func):
+    def inner1():
+        print("Hello,this is before function execution..")
+        func()
+        print("This is after function execution..")
+    return inner1
+
+@decro
+def fun1():
+    print("This is outside function")
+fun1()
+
+===================
+
+def inc(x):
+    return x+1
+
+def dec(x):
+    return x-1
+
+def operate(func,x):
+    res = func(x)
+    return res
+
+x = operate(inc,5)
+print(x)
+y = operate(dec,5)
+print(y)
+
+=================================
+csv:>
+A CSV file (Comma Separated Values file) is a type of plain text file that uses specific structuring to arrange tabular data
+Because it’s a plain text file, it can contain only actual text data—in other words, printable ASCII or Unicode characters.
+
+The structure of a CSV file is given away by its name. Normally, CSV files use a comma to separate each specific data value. 
+
+structure:
+column 1 name,column 2 name, column 3 name
+first row data 1,first row data 2,first row data 3
+second row data 1,second row data 2,second row data 3
+
+
+
+'''
+import csv
+with open("testcase.csv" ,"w",newline="") as f:
+    w = csv.writer(f)
+    w.writerow(["ENO","ENAME","ESAL","EADDR"])
+    n = int(input("Enter no of Employees:"))
+    for i in range(n):
+        eno = int(input("Enter a no:"))
+        ename = input("Enter name:")
+        esal = int(input("Enter a sal:"))
+        eaddr = input("Enter address")
+        w.writerow([eno,ename,esal,eaddr])
+print("The Data is Inserted successfully...")
+
+'''
+import csv
+f = open("testcase.csv" ,"r")
+r = csv.reader(f)
+data = r
+#print(data)
+
+for line in data:
+    for word in line:
+        print(word,'\t',end=" ")
+    print()
+
+#print(line)
+
+=================================
+
+'''
+ZIPFILE:>  a ZIP file is a single file containing one or more compressed files,
+offering an ideal way to make large files smaller and keep related files together.
+
+To reduce storage requirements.
+To improve transfer speed over standard connections.
+
+To work on zip files using python, we will use an inbuilt python module called zipfile.
+
+from zipfile import *      * means All
+f=ZipFile("text.zip","w",ZIP_DEFLATED)
+f.write("classbased views.txt")
+f.write("java notes.txt")
+f.close()
+print("zipfile is created....")
+'''
+from zipfile import *
+f = ZipFile("text.zip","r",ZIP_STORED)
+content = f.namelist()
+for i in content:
+    print("The file name is:",i)
+    print("content of this file is:")
+    r = open(i,"r")
+    data= r.read()
+    print(data)
+

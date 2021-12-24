@@ -1,0 +1,52 @@
+ index.html
+-----------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="#">This link is useful</a>
+<h2>
+    iam learning web scrapping
+</h2>
+<div>
+    <h2 id="ak">m living in hyderabad</h2>
+    <p class ="pk">stay home</p>
+</div>
+<p id="kk">
+    stay safe
+</p>
+</body>
+</html>
+
+web scrapping.py webscreappping is nothing but fetcching data from websites(i.e static websites)
+for dynamic websites webscrapping is done by django
+Automated web scraping can be a solution to speed up the data collection process. You write your code once and it
+get the information you want many times and from many pages.
+
+----------------
+
+'''
+from bs4 import BeautifulSoup
+
+
+with open("index.html") as html:
+    soup = BeautifulSoup(html,'html.parser')
+
+res = soup.find("h2",{"id":"ak"})
+print(res.text)
+
+from bs4 import BeautifulSoup
+import requests
+
+source = requests.get("https://www.python.org/doc/").text
+soup = BeautifulSoup(source,"html.parser")
+res = soup.find("h1",{"class":"call-to-action"})
+print(res.text)
+res1 = soup.find("a",{"class":"donate-button"})
+print(res1.text)
+'''

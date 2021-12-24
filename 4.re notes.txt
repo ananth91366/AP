@@ -1,0 +1,152 @@
+ is a sequence of characters that forms a search pattern.
+
+RegEx can be used to check if a string contains the specified search pattern.
+
+
+import re
+
+findall=>gives in list format and the word repeates 
+search=>span=(23, 26), match='hyd' gives first time appearing word poistion
+sub=>replaces the word where we want instead of that
+subn=>same as Sub and also gives number of times it replace 
+
+\d => it returns only digits in list format
+\D => except digits gives space in digits place and in list format
+\w => except special chars nd spaces 
+\W => only spaces nd special chars
+\s => only spaces
+\S => except spaces 
+[]
+()
+{}
+^=>starting word
+$=>ending word
+
+===============
+
+'''
+import re
+st = "rain in hyd at 5:30 pm hyd is capital of tg hyd hyd hyd"
+res = re.findall("hyd",st)
+print(res)
+
+print("-----------")
+
+import re
+st = "rain in Hyd at 5:30 pm hyd is capital of tg hyd hyd hyd"
+res = re.search("hyd",st)
+print(res)
+print("============")
+
+import re
+st = "rain in hyd at 5:30 pm hyd is capital of tg hyd hyd hyd"
+res = re.sub("hyd",'Hyderabad',st)
+print(res)
+print("------------------")
+import re
+st = "rain in hyd at 5:30 pm hyd is capital of tg hyd hyd "
+res = re.subn("hyd","hyderabad",st)
+print(res)
+
+import re
+st = "rain in hyd at 5:30 pm"
+res = re.findall('\d',st)
+print(res)
+res1 = re.findall('\D',st)
+print(res1)
+res2 = re.findall('\w',st)
+print(res2)
+res3 = re.findall('\W',st)
+print(res3)
+res4 = re.findall('\s',st)
+print(res4)
+res5 = re.findall('\S',st)
+print(res5)
+
+import re
+st = "abcdefghijklmnopqrstuvwxyz"
+res = re.findall('[d-n]',st)
+print(res)
+
+import re
+st = "rain in hyd at 5:30 pm"
+res = re.findall('^rain',st)
+print(res)
+
+print("----------------")
+
+import re
+st = "hyd is capital of tg"
+res = re.findall('tg$',st)
+print(res)
+
+import re
+num = input("enter a num :")
+res = re.findall('^[6-9]{1}[0-9]{9}$',num)
+if res:
+    print("valid")
+
+else:
+    print("invalid")
+
+
+import re
+ifsccode = input("Enter ifsccode : ")
+res = re.findall('[A-Za-z]{4}0[0-9]{6}$',ifsccode)
+if res:
+    print("valid code")
+
+else:
+    print("invalid")
+
+import re
+st = "my mail id is xyz@gmail.com iam learning regular expression concept 191.0.01.1 python is oops 190.00.0.1 abc@gmail.com"
+res = re.findall('\d{1,4}\.\d{1,3}\.\d{1,3}\.\d{1,3}',st)
+print(res)
+res1 = re.findall('\S',st)
+print(res1)
+res2= re.findall('\S+',st)
+print(res2)
+res3 = re.findall('\S+@',st)
+print(res3)
+res4 = re.findall('\S+@\S+',st)
+print(res4)
+
+list1 = [1,2,3]
+
+list2 = [[i for i in [list1]] for i in range(4)]
+print(list2)
+
+x = []
+
+if x:
+  print(x,"True")
+else:
+  print(x,"False")
+
+p = (1,10)
+q = 0
+r = []
+
+if p or q and r:
+   print("True")
+
+else:
+   print("False")
+
+
+list1 = ["ABC","XYZ","PqR"]
+
+#print(list(x.lower() for x in list1))
+
+for i in list1:
+    print([i.lower()])
+'''
+
+
+
+
+
+
+
+

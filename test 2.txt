@@ -1,0 +1,119 @@
+25)web scrapping:> it is nothing but fetching the data from websites.but its not for all websites.
+program:
+from bs4 import BeautifulSoup
+import requests
+
+source = requests.get('https://www.python.org/doc/').text
+soup = BeautifulSoup(source,"html.parser")
+
+res = soup.find("h1",{"class":"call-to-action"})
+print(res.text)
+o/p:>Browse the docs online or download a copy of your own.
+24)import re
+re.findall(/s+@/s+)
+23)method:>require of calling,return support,any keyword (functions)
+   constructor: init keyword,return not support,no requirement of calling
+22)def fun():
+    d = {}
+    for x in range(1,16):
+        y = x*2
+        d[x]=y
+    print(d)
+fun()
+21)l =  [123,121,232,234,1234,1221,565]
+for x in l:
+    t = x
+    rev = 0
+    while t>0:
+        dig = t%10
+        rev = rev*10+dig
+        t = t//10
+    if rev == x:
+        print(x)
+
+20)n = 123467
+count = 0
+while n>0:
+    n = n // 10
+    count += 1
+print(count)
+o/p:>6
+19)polymorphism:
+   overriding:mathod is same and parameters are same
+   overloading:method is same but parameters are not same
+18)pass:>not showing of an error
+          if we have no statement in block then we use pass for not showing error
+17)import random as r
+def otpGen():
+    otp = ""
+    for x in range(6):
+        otp+=str(r.randint(1,9))
+    print(otp)
+otpGen()
+16)Negative index:>it is a slice operator
+                  its from right side poistion in the list
+    l = [1,2,3,4,5,6,7]
+print(l[::-1])
+print(l[:-1])
+print(l[:])
+print(l[-1:-6])    
+14)yield:>it is a keyword 
+          used in generators
+          yield(n**5)
+          n+=3
+its not automatical
+12)l = [1,2,3,4,56,7,8,0,2,34,689,7,56]
+l.sort(reverse=True)
+print(l)
+x = l[0]
+print(x)
+9)import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+val = [
+    (1111,'xyz',601),
+    (5568,'def',708),
+    (12,'pqr',523)
+]
+curs.executemany("insert into student_info values (?,?,?)",val)
+conn.commit()
+conn.close()
+8)import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+curs.execute("create table student_info(sno number,sna text,smar number)")
+conn.close()
+7)
+l = [[1],[2],[3,4],[5,6]]
+l1 = []
+for x in l:
+    if isinstance( x,list):
+
+        l1.extend(x)
+    else:
+        l1.append(x)
+print(l1)
+print(sum(l1))
+11)d = {1:2,3:4,4:5}
+
+print(d[1]+d[3]+d[4])
+10)d = {1:2,3:4,4:5,6:7}
+d[4] = 5
+
+print(d)
+d[4]=55
+print(d)
+4)n = int(input("enter a number"))
+for x in range(1,6):
+    print(x*n)
+6)l = [['green', 'orange'], ['black', 'white'], ['white', 'black', 'orange']]
+l[2][0] = 'black'
+l[2][1] = 'orange'
+l[2][2] = 'white'
+print(l)
+
+          

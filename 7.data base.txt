@@ -1,0 +1,126 @@
+Has A relationship:
+
+class Employee:
+    def __init__(self,pay,bouns): # step4
+        self.p = pay
+        self.b = bouns
+
+    def annual_salary(self): # step 9
+        return self.p*12+self.b
+
+
+class Salary:
+    def __init__(self,eid,ename,pay,bouns): # step2
+        self.id = eid
+        self.na = ename
+        self.e = Employee(pay,bouns) # parent class object creation # step3
+
+    def show(self): # step7
+        print("eid is : ",self.id)
+        print("ename is : ",self.na)
+        print("salary is : ",self.e.annual_salary()) # step8
+
+
+s = Salary(111,"python",15000,10000) # step1
+s.show() # step6
+'''
+
+======================
+Database:
+
+A database is an abstraction over an operating system's file system that makes it easier
+for developers to build applications that create, read, update and delete persistent data.
+
+PostgreSQL and MySQL are two of the most common open source databases for storing Python web applications' data.
+
+SQLite is a database that is stored in a single file on disk. SQLite is built into Python but is only built for 
+access by a single connection at a time. Therefore is highly recommended to not run a production web application with SQLite.
+'''
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+print("db is created")
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+curs.execute("create table student_info(sno number,sname text,smarks number)")
+conn.close()
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+curs.execute("insert into student_info values (111,'abc',533)")
+conn.commit()
+conn.close()
+print("values inserted successfully!.....")
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+
+val = [
+    (222,'xyz',484),
+    (333,'def',540),
+    (444,'pqr',555)
+]
+
+curs.executemany("insert into student_info values (?,?,?)",val)
+conn.commit()
+conn.close()
+print("multiple values inserted successfully")
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+curs.execute("select sname,smarks from student_info")
+res = curs.fetchall()
+
+for line in res:
+    print(line)
+
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+
+curs.execute("delete from student_info where sno=222")
+conn.commit()
+conn.close()
+print("person deleted")
+'''
+import sqlite3 as sql
+conn = sql.connect("student.db")
+curs = conn.cursor()
+curs.execute("update student_info SET smarks=666 WHERE sno=444")
+curs.execute("update student_info SET sname='ananth' WHERE sno=333")
+conn.commit()
+conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

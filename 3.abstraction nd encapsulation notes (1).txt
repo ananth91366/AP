@@ -1,0 +1,210 @@
+'''
+class A:
+    def m1(self,age,name):
+        self.a = age
+        self.na = name
+        print("m from class A")
+
+    def m2(self):
+        print("age is : ",self.a)
+        print("m from class A method m2")
+        print("c class name is : ", self.na)
+
+
+class B(A):
+    def m3(self,age):
+        self.age = age
+        print("m from m3 method")
+        print("age is : ",self.age)
+
+b = B()
+b.m1(21,"xyz")
+b.m2()
+b.m3(24)
+
+class A:
+    def m1(self):
+        print("m from class A")
+
+class B:
+    def m1(self):
+        print("m from class B")
+      
+
+
+class C(A,B):
+    def m2(self):
+        print("m from class C")
+
+
+c = C()
+c.m2()
+c.m1()
+
+class India:
+    def capital(self):
+        print("delhi is capital of India")
+
+    def language(self):
+        print("hindi is primary language")
+
+class Usa:
+    def capital(self):
+        print("W.dc is capital os Usa")
+    def language(self):
+        print("english is primary language")
+
+
+obj_ind = India()
+obj_usa = Usa()
+
+for x in obj_ind,obj_usa:
+    x.capital()
+    x.language()
+
+l = [1,2,3,4,5]
+l[2] = 33
+print(l)
+s = "pythont"
+#s[2]="z"
+print(s.replace('t','z'))
+print(s)
+
+class A:
+   # calling
+    def m1(self):
+        print("m from m1 method") #step4
+
+    def __update(self): # define step3
+        print("m from update method")
+    def __init__(self): # step2
+        self.__update()
+
+obj = A() # step1
+obj.m1()
+
+from abc import ABC
+
+class Polygon(ABC):
+    def noofside(self):
+        pass
+
+class Triangle(Polygon):
+    def noofsides(self):
+        print("3 sides")
+
+class Square(Polygon):
+    def noofsides(self):
+        print("4 sides")
+
+t = Triangle()
+t.noofsides()
+t.noofside()
+s = Square()
+s.noofsides()
+s.noofside()
+
+def fun():
+    print("hello")
+fun()
+
+class A:
+    def __init__(self):
+        print("m from class A")
+
+
+class B(A):
+    def __init__(self):
+        print("m from class B")
+        super().__init__()
+
+b = B()
+
+class A:
+    def __init__(self,animal):
+        print(animal,"it is mammual animal ")
+
+class B(A):
+    def __init__(self,x):
+        print(x,"eats non veg only")
+        super().__init__("Dog")
+
+b = B("cat")
+
+class Employee:
+    def assign(self,name,add):
+        self.na = name
+        self.a = add
+
+    def show(self):
+        print("cmpny name is : ",self.na)
+        print("cmpny add is : ",self.a)
+
+class Temp(Employee):
+    def assign(self,name,add,sal):
+        super().assign(name,add)
+        self.s=sal
+
+    def display(self):
+        super().show()
+        print("sal is : ",self.s)
+
+class Per(Employee):
+    def assign(self,name,add,age):
+        super().assign(name,add)
+        self.a = age
+
+    def mymethod(self):
+        super().show()
+        print("age is : ",self.a)
+        
+t = Temp()
+t.assign("xyz","hyd",12500)
+t.display()
+print("-------------")
+p = Per()
+p.assign("python","hyd",25)
+p.mymethod()
+
+#s = "python"
+
+l = [1,2,3,4]
+#print(l[-2:])
+
+if len(l)>4:
+    print(sum(l[-2:]))
+
+else:
+    print(sum(l[:4]))
+
+pin = int(input("Enter pin : "))
+bals = 2000
+if pin == 1234:
+    print("welcome")
+    print("1)balc enq")
+    print("2)Deposit")
+    print("3)withdraw")
+    option = int(input("choose u r option : "))
+    if option == 1:
+        print("availabe balc is : ",bals)
+    elif option==2:
+        amount = int(input("ENter deposit amount : "))
+        print("after deposit avaliable balc : ",bals+amount)
+
+    else:
+        wamount = int(input("Enter withdraw amount : "))
+        print("after withdraw amount bals : ",bals-wamount)
+else:
+    print("invalid pin ")
+'''
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+try&except:>
+
+The try block lets you test a block of code for errors.
+
+The except block lets you handle the error.
+
+Exception is nothing but a error these errors will be raised at runtime
+if any error raises at runtime the program terminated abnormally
+for rectifying errors we are using try&except block method
+
+Try:>it is a collection of one or more statements if any error occurs in try block ,the try block will create an object
+to the exception class
+
+Except:>to rectify the errors
+
+
+VALUE,NAME,ZERO DIVISION,FILE NOT FOUND errors are there
+
+try:
+    a = int(input("Enter a value : "))
+    b = int(input("Enter b value : "))
+
+    print("sum is : ",a+b)
+    print("div is :",a/b)
+
+except ZeroDivisionError:
+    print("can't divided by zero")
+except ValueError:
+    print("must be pass int values only")
+finally:
+    print("rest of the code")
+
+
+try:
+    a = int(input("Enter a value : ")) #20
+    b = int(input("ENter b value : ")) #two
+
+    try:
+        print("sum is : ",a+b)
+        print("div is : ",a/b)
+    except ZeroDivisionError:
+        print("can't divded by zero")
+except ValueError:
+    print("must be pass int values")
+
+try:
+    a = 10
+    b = 5
+    print(a+b)
+except NameError:
+    print("must be pass b value")
+with open("demo.txt","w") as file:
+    file.write("i am learning python")
+
+print("file is created!!!!")
+
+with open("demo.txt","r") as f:
+    data = f.read()
+    print(data)
+
+with open("demo.txt","a") as f:
+    f.write("\t stay home")
+    f.write("\t stay safe")
+
+print("more content is added")
+
+with open("demo.txt") as f:
+    data = f.readlines()
+    print(data)
+
+f = open("sample.txt","w")
+f.write("hyd is capital of Telangana")
+f.close()
+
+f = open("sample.txt","r")
+data = f.read()
+print(data)
+f.close()
+
+f = open("sample.txt","a")
+f.write("\n stay home")
+f.close()
+
+try:
+    file = input("Enter file name: ")
+    with open(file) as f:
+        print(f.read())
+
+except FileNotFoundError:
+    print("enter correct file name")
+4/12/2020
+ with open("test.txt","w") as f:
+    f.write("this is file concept")
+    f.write("\n this link is useful")
+    f.write("\n python is oops language")
+    f.write("\n stay home")
+    f.write("\n the sun rises in the east")
+
+with open("test.txt","r") as f:
+    data = f.read()
+
+    for line in data:
+        line = line.strip('\n')
+        print(line)
+
+with open("test.txt","r") as f:
+
+    data = f.readlines()
+
+try:
+    a = int(input("Enter a value : "))
+    b = int(input("Enter b value : "))
+
+    print("sum is : ",a+b)
+    print("div is :",a/b)
+
+except ZeroDivisionError:
+    print("can't divided by zero")
+except ValueError:
+    print("must be pass int values only")
+finally:
+    print("rest of the code")
+    
+try:
+    a = int(input("Enter a value : ")) #20
+    b = int(input("ENter b value : ")) #two
+
+    try:
+        print("sum is : ",a+b)
+        print("div is : ",a/b)
+    except ZeroDivisionError:
+        print("can't divded by zero")
+except ValueError:
+    print("must be pass int values")
+else:
+    print("rest of the code")
+    
+try:
+    a = 10
+    b = 5
+    print(a+b)
+except NameError:
+    print("must be pass b value")
+note: Final and else block both are not running one time it givs syntax error
+
+    
+f = open("sample.txt","w")
+f.write("\nthis is file concept")
+f.write("\npython is oops")
+f.write("\nthe link is useful")
+f.write("\nthe sunrise is east")
+f.write("\npython is background program")
+f.close()
+
+f = open("sample.txt","r")
+data = f.read()
+print(data)
+f.close()
+
+f = open("sample.txt","r")
+count = 0
+for x in f:
+    
+    count+=1
+
+    print(x)
+    print(count)
+===================================================================
+
+string escapes:
+st = "my name is : {name} and age is : {age}".format(age=23,name="xyz")
+print(st)
+st1 = "my name is : {1} nd age is : {0}".format(23,"abc")
+print(st1)
+
+
+syntax:
+string.format(value1, value2...)
+
+The format() method formats the specified value(s) and insert them inside the string's placeholder.
+
+The placeholder is defined using curly brackets: {}. 
+
+The format() method returns the formatted string.
+
+
+
+
+
